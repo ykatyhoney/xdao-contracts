@@ -193,27 +193,6 @@ describe("Crowdfunding", () => {
         [],
       ]);
 
-      await executeTxRaw(
-        secondDao.address,
-        crowdfunding.address,
-        CrowdfundingModule__factory.createInterface().encodeFunctionData(
-          "initSale",
-          [
-            usdc.address,
-            lp.address,
-            parseEther("1"),
-            parseEther("20"),
-            0,
-            0,
-            [],
-            [false, false, false, false],
-            [],
-          ]
-        ),
-        0,
-        signer
-      );
-
       await expect(
         executeTxRaw(
           firstDao.address,
@@ -238,10 +217,6 @@ describe("Crowdfunding", () => {
       ).to.be.revertedWith("CrowdfundingModule: Crowdfunding already exists");
 
       await usdc.approve(crowdfunding.address, parseEther("10"));
-
-      await expect(
-        crowdfunding.buy(secondDao.address, parseEther("4"), true)
-      ).to.be.revertedWith("CrowdfundingModule: not enough balance");
 
       await crowdfunding.buy(firstDao.address, parseEther("4"), true);
 
@@ -284,6 +259,79 @@ describe("Crowdfunding", () => {
       
       expect(await lp.balanceOf(crowdfunding.address)).to.eql(
         parseEther("4.03")
+      );
+    });
+
+    it("Cross-tenant token confusion guard", async () => {
+      // firstDao's LP is already in the module (from beforeEach).
+      // secondDao must NOT be able to initSale with firstDao's LP.
+      await expect(
+        executeTxRaw(
+          secondDao.address,
+          crowdfunding.address,
+          CrowdfundingModule__factory.createInterface().encodeFunctionData(
+            "initSale",
+            [
+              usdc.address,
+              lp.address, // firstDao's LP — should be rejected
+              parseEther("1"),
+              parseEther("20"),
+              0,
+              0,
+              [],
+              [false, false, false, false],
+              [],
+            ]
+          ),
+          0,
+          signer
+        )
+      ).to.be.revertedWith(
+        "CrowdfundingModule: tokenAddress custodied for another DAO"
+      );
+
+      // firstDao CAN use its own LP (positive case).
+      await executeTxRaw(
+        firstDao.address,
+        crowdfunding.address,
+        CrowdfundingModule__factory.createInterface().encodeFunctionData(
+          "initSale",
+          [
+            usdc.address,
+            lp.address,
+            parseEther("2"),
+            parseEther("20"),
+            0,
+            0,
+            [],
+            [false, false, false, false],
+            [],
+          ]
+        ),
+        0,
+        signer
+      );
+
+      // secondDao CAN use a token with zero module balance (new token).
+      await executeTxRaw(
+        secondDao.address,
+        crowdfunding.address,
+        CrowdfundingModule__factory.createInterface().encodeFunctionData(
+          "initSale",
+          [
+            usdc.address,
+            usdc.address, // module holds 0 USDC — allowed
+            parseEther("1"),
+            parseEther("10"),
+            0,
+            0,
+            [],
+            [false, false, false, false],
+            [],
+          ]
+        ),
+        0,
+        signer
       );
     });
 

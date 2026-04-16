@@ -172,6 +172,20 @@ contract CrowdfundingModule is
             "CrowdfundingModule: Crowdfunding already exists"
         );
 
+        // Cross-tenant token-confusion guard: reject tokenAddress if the
+        // module already custodies that token for a different DAO.
+        {
+            address callerLp;
+            try IDao(msg.sender).lp() returns (address _lp) {
+                callerLp = _lp;
+            } catch {}
+            require(
+                _token == callerLp ||
+                    IERC20Upgradeable(_token).balanceOf(address(this)) == 0,
+                "CrowdfundingModule: tokenAddress custodied for another DAO"
+            );
+        }
+
         sale.currency = _currency;
         sale.tokenAddress = _token;
         sale.rate = _rate;
