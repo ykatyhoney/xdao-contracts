@@ -24,13 +24,15 @@ const config: HardhatUserConfig = {
     mainnet: {
       url: process.env.MAINNET_RPC_URL || `https://eth.drpc.org`,
       chainId: 1,
-      accounts
+      accounts,
+      gasPrice: 0.35e9
     },
 
     bsc: {
       url: process.env.BSC_RPC_URL || `https://bsc-dataseed1.binance.org`,
       chainId: 56,
-      accounts
+      accounts,
+      gasPrice: 0.1e9
     },
 
     heco: {
@@ -190,9 +192,10 @@ const config: HardhatUserConfig = {
     },
 
     arbitrumOne: {
-      url: 'https://arb1.arbitrum.io/rpc',
+      url: process.env.ARB_ONE_RPC_URL || 'https://arb1.arbitrum.io/rpc',
       chainId: 42161,
-      accounts
+      accounts,
+      gasPrice: 0.1e9
     },
 
     skale: {

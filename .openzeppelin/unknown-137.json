@@ -1,0 +1,373 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x8AC7D4cEA044fB0d0153c28d145aE350bA25f1bA",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "10dd90a69b96b94fcb25ba32445e35b2cd6842a657dfb575b3cbada8eb2f5382": {
+      "address": "0xcEf91C93b1E86eCfe04d9911A7D514fd1D248739",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_roles",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)179_storage)",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "AccessControlUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:235"
+          },
+          {
+            "label": "_roleMembers",
+            "offset": 0,
+            "slot": "251",
+            "type": "t_mapping(t_bytes32,t_struct(AddressSet)3247_storage)",
+            "contract": "AccessControlEnumerableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "252",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "AccessControlEnumerableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol:76"
+          },
+          {
+            "label": "factory",
+            "offset": 0,
+            "slot": "301",
+            "type": "t_contract(IFactory)11387",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:26"
+          },
+          {
+            "label": "shop",
+            "offset": 0,
+            "slot": "302",
+            "type": "t_contract(IShop)11531",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:27"
+          },
+          {
+            "label": "privateExitModule",
+            "offset": 0,
+            "slot": "303",
+            "type": "t_contract(IPrivateExitModule)11476",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:28"
+          },
+          {
+            "label": "vestingModule",
+            "offset": 0,
+            "slot": "304",
+            "type": "t_contract(IDaoVestingModule)11179",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:29"
+          },
+          {
+            "label": "feeAddress",
+            "offset": 0,
+            "slot": "305",
+            "type": "t_address",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:31"
+          },
+          {
+            "label": "regularFeeRate",
+            "offset": 20,
+            "slot": "305",
+            "type": "t_uint32",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:32"
+          },
+          {
+            "label": "discountFeeRate",
+            "offset": 24,
+            "slot": "305",
+            "type": "t_uint32",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:33"
+          },
+          {
+            "label": "saleIndexes",
+            "offset": 0,
+            "slot": "306",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:61"
+          },
+          {
+            "label": "crowdfundings",
+            "offset": 0,
+            "slot": "307",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_struct(Sale)11756_storage))",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:63"
+          },
+          {
+            "label": "investorsInfo",
+            "offset": 0,
+            "slot": "308",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_address,t_struct(InvestorInfo)11761_storage)))",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:66"
+          },
+          {
+            "label": "totalBoughtAmount",
+            "offset": 0,
+            "slot": "309",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:70"
+          },
+          {
+            "label": "filledTokenAmount",
+            "offset": 0,
+            "slot": "310",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "contract": "CrowdfundingModule",
+            "src": "contracts/modules/CrowdfundingModule.sol:73"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_contract(IDaoVestingModule)11179": {
+            "label": "contract IDaoVestingModule"
+          },
+          "t_contract(IFactory)11387": {
+            "label": "contract IFactory"
+          },
+          "t_contract(IPrivateExitModule)11476": {
+            "label": "contract IPrivateExitModule"
+          },
+          "t_contract(IShop)11531": {
+            "label": "contract IShop"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_address,t_struct(InvestorInfo)11761_storage)))": {
+            "label": "mapping(address => mapping(uint256 => mapping(address => struct CrowdfundingModule.InvestorInfo)))"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_struct(Sale)11756_storage))": {
+            "label": "mapping(address => mapping(uint256 => struct CrowdfundingModule.Sale))"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_address,t_struct(InvestorInfo)11761_storage)": {
+            "label": "mapping(address => struct CrowdfundingModule.InvestorInfo)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_bytes32,t_struct(AddressSet)3247_storage)": {
+            "label": "mapping(bytes32 => struct EnumerableSetUpgradeable.AddressSet)"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)179_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(InvestorInfo)11761_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct CrowdfundingModule.InvestorInfo))"
+          },
+          "t_mapping(t_uint256,t_struct(Sale)11756_storage)": {
+            "label": "mapping(uint256 => struct CrowdfundingModule.Sale)"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_struct(AddressSet)3247_storage": {
+            "label": "struct EnumerableSetUpgradeable.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)2946_storage"
+              }
+            ]
+          },
+          "t_struct(InvestorInfo)11761_storage": {
+            "label": "struct CrowdfundingModule.InvestorInfo",
+            "members": [
+              {
+                "label": "boughtAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "allocation",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_struct(RoleData)179_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_struct(Sale)11756_storage": {
+            "label": "struct CrowdfundingModule.Sale",
+            "members": [
+              {
+                "label": "currency",
+                "type": "t_address"
+              },
+              {
+                "label": "tokenAddress",
+                "type": "t_address"
+              },
+              {
+                "label": "isFinite",
+                "type": "t_bool"
+              },
+              {
+                "label": "isVesting",
+                "type": "t_bool"
+              },
+              {
+                "label": "isWhitelist",
+                "type": "t_bool"
+              },
+              {
+                "label": "isAllocation",
+                "type": "t_bool"
+              },
+              {
+                "label": "rate",
+                "type": "t_uint256"
+              },
+              {
+                "label": "saleAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "minimumEntranceAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "maximumEntranceAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endTimestamp",
+                "type": "t_uint256"
+              },
+              {
+                "label": "vestingId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "whitelist",
+                "type": "t_struct(AddressSet)3247_storage"
+              }
+            ]
+          },
+          "t_struct(Set)2946_storage": {
+            "label": "struct EnumerableSetUpgradeable.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          }
+        }
+      }
+    }
+  }
+}
